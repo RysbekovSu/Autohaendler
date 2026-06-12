@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10" style="-fx-padding: 10;"
+      xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.autohaendler.controller.MitarbeiterController">
+
+    <Label text="Mitarbeiterverwaltung" style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+
+    <TableView fx:id="tabelle" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colNr"       text="Nr"       prefWidth="50"/>
+            <TableColumn fx:id="colNachname" text="Nachname" prefWidth="120"/>
+            <TableColumn fx:id="colVorname"  text="Vorname"  prefWidth="120"/>
+            <TableColumn fx:id="colBetrieb"  text="Betrieb"  prefWidth="70"/>
+            <TableColumn fx:id="colGehalt"   text="Gehalt"   prefWidth="90"/>
+            <TableColumn fx:id="colDatum"    text="Einstellung" prefWidth="100"/>
+        </columns>
+    </TableView>
+
+    <GridPane hgap="10" vgap="6">
+        <Label text="Nr:"             GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtNr"      GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="200"/>
+
+        <Label text="Nachname:"       GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtNachname" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Vorname:"        GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtVorname" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Betrieb:"        GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="cbBetrieb"   GridPane.rowIndex="3" GridPane.columnIndex="1" prefWidth="200"/>
+
+        <Label text="Gehalt (€):"     GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtGehalt"  GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+
+        <Label text="Einstellungsdatum:" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+        <DatePicker fx:id="dpDatum"   GridPane.rowIndex="5" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <HBox spacing="10">
+        <Button fx:id="btnHinzufuegen" text="Hinzufügen" onAction="#handleHinzufuegen"
+                style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+        <Button fx:id="btnAendern"     text="Ändern"     onAction="#handleAendern"
+                style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+        <Button fx:id="btnLoeschen"    text="Löschen"    onAction="#handleLoeschen"
+                style="-fx-background-color: #f44336; -fx-text-fill: white;"/>
+        <Button text="Leeren" onAction="#handleLeeren"/>
+    </HBox>
+
+    <Label fx:id="lblStatus" style="-fx-text-fill: #555;"/>
+</VBox>

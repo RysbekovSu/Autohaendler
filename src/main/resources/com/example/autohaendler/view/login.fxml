@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<VBox spacing="10" alignment="CENTER"
+      prefWidth="300" prefHeight="200"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.autohaendler.controller.LoginController">
+
+   <Label text="Autohaendler Login"/>
+
+   <TextField fx:id="txtBenutzername"
+              promptText="Benutzername" maxWidth="200"/>
+
+   <PasswordField fx:id="txtPasswort"
+                  promptText="Passwort" maxWidth="200"/>
+
+   <Button  fx:id="btnLogin" text="Login"
+           onAction="#handleLogin"/>
+
+   <Label fx:id="lblFehler"
+          style="-fx-text-fill: red;"/>
+</VBox>

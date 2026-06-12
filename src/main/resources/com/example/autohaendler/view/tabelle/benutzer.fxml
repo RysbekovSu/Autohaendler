@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10" style="-fx-padding: 10;"
+      xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.example.autohaendler.controller.BenutzerController">
+
+    <Label text="Benutzerverwaltung (nur Admin)" style="-fx-font-size: 16; -fx-font-weight: bold;"/>
+
+    <TableView fx:id="tabelle" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colNr"           text="Nr"           prefWidth="50"/>
+            <TableColumn fx:id="colBenutzername" text="Benutzername" prefWidth="150"/>
+            <TableColumn fx:id="colPasswort"     text="Passwort"     prefWidth="120"/>
+            <TableColumn fx:id="colRolle"        text="Rolle"        prefWidth="100"/>
+        </columns>
+    </TableView>
+
+    <GridPane hgap="10" vgap="6">
+        <Label text="Nr:"               GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtNr"        GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="200"/>
+
+        <Label text="Benutzername:"     GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtBenutzername" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Passwort:"         GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <PasswordField fx:id="txtPasswort" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Rolle:"            GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="cbRolle"       GridPane.rowIndex="3" GridPane.columnIndex="1" prefWidth="200"/>
+    </GridPane>
+
+    <HBox spacing="10">
+        <Button fx:id="btnHinzufuegen" text="Hinzufügen" onAction="#handleHinzufuegen"
+                style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+        <Button fx:id="btnAendern"     text="Ändern"     onAction="#handleAendern"
+                style="-fx-background-color: #2196F3; -fx-text-fill: white;"/>
+        <Button fx:id="btnLoeschen"    text="Löschen"    onAction="#handleLoeschen"
+                style="-fx-background-color: #f44336; -fx-text-fill: white;"/>
+        <Button text="Leeren" onAction="#handleLeeren"/>
+    </HBox>
+
+    <Label fx:id="lblStatus" style="-fx-text-fill: #555;"/>
+</VBox>
