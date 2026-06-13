@@ -15,9 +15,9 @@ public class VerkaufController {
 
     @FXML private TableView<Verkauf> tabelle;
     @FXML private TableColumn<Verkauf, Integer>    colNr;
-    @FXML private TableColumn<Verkauf, Integer>    colFahrzeug;
-    @FXML private TableColumn<Verkauf, Integer>    colKunde;
-    @FXML private TableColumn<Verkauf, Integer>    colMitarbeiter;
+    @FXML private TableColumn<Verkauf, String>     colFahrzeug;
+    @FXML private TableColumn<Verkauf, String>     colKunde;
+    @FXML private TableColumn<Verkauf, String>     colMitarbeiter;
     @FXML private TableColumn<Verkauf, LocalDate>  colDatum;
     @FXML private TableColumn<Verkauf, BigDecimal> colPreis;
 
@@ -41,11 +41,56 @@ public class VerkaufController {
     @FXML
     public void initialize() {
         colNr.setCellValueFactory(new PropertyValueFactory<>("verkaufsNr"));
-        colFahrzeug.setCellValueFactory(new PropertyValueFactory<>("fahrzeug"));
-        colKunde.setCellValueFactory(new PropertyValueFactory<>("kunde"));
-        colMitarbeiter.setCellValueFactory(new PropertyValueFactory<>("mitarbeiter"));
+
+        colFahrzeug.setCellValueFactory(cellData -> {
+            int fId = cellData.getValue().getFahrzeug();
+            String fText = fahrzeuge.stream()
+                    .filter(f -> f.getFahrzeugNr() == fId)
+                    .map(f -> f.getMarke() + " " + f.getModell())
+                    .findFirst()
+                    .orElse(String.valueOf(fId));
+            return new javafx.beans.property.SimpleStringProperty(fText);
+        });
+
+        colKunde.setCellValueFactory(cellData -> {
+            int kId = cellData.getValue().getKunde();
+            String kText = kunden.stream()
+                    .filter(k -> k.getKundenNr() == kId)
+                    .map(k -> k.getNachname() + ", " + k.getVorname())
+                    .findFirst()
+                    .orElse(String.valueOf(kId));
+            return new javafx.beans.property.SimpleStringProperty(kText);
+        });
+
+        colMitarbeiter.setCellValueFactory(cellData -> {
+            int mId = cellData.getValue().getMitarbeiter();
+            String mText = mitarbeiter.stream()
+                    .filter(m -> m.getMitarbeiterNr() == mId)
+                    .map(m -> m.getNachname() + ", " + m.getVorname())
+                    .findFirst()
+                    .orElse(String.valueOf(mId));
+            return new javafx.beans.property.SimpleStringProperty(mText);
+        });
+
         colDatum.setCellValueFactory(new PropertyValueFactory<>("datum"));
+
         colPreis.setCellValueFactory(new PropertyValueFactory<>("preis"));
+        colPreis.setCellFactory(column -> new TableCell<Verkauf, BigDecimal>() {
+            private final java.text.NumberFormat nf = java.text.NumberFormat.getNumberInstance(java.util.Locale.GERMANY);
+            {
+                nf.setMinimumFractionDigits(2);
+                nf.setMaximumFractionDigits(2);
+            }
+            @Override
+            protected void updateItem(BigDecimal item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty || item == null) {
+                    setText(null);
+                } else {
+                    setText(nf.format(item));
+                }
+            }
+        });
 
         tabelle.setItems(daten);
         cbFahrzeug.setItems(fahrzeuge);
