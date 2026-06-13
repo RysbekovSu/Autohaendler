@@ -12,9 +12,9 @@
     <TableView fx:id="tabelle" VBox.vgrow="ALWAYS">
         <columns>
             <TableColumn fx:id="colNr"          text="Nr"          prefWidth="50"/>
-            <TableColumn fx:id="colFahrzeug"    text="Fahrzeug"    prefWidth="80"/>
-            <TableColumn fx:id="colKunde"       text="Kunde"       prefWidth="80"/>
-            <TableColumn fx:id="colMitarbeiter" text="Mitarbeiter" prefWidth="90"/>
+            <TableColumn fx:id="colFahrzeug"    text="Fahrzeug"    prefWidth="160"/>
+            <TableColumn fx:id="colKunde"       text="Kunde"       prefWidth="160"/>
+            <TableColumn fx:id="colMitarbeiter" text="Mitarbeiter" prefWidth="160"/>
             <TableColumn fx:id="colDatum"       text="Datum"       prefWidth="100"/>
             <TableColumn fx:id="colPreis"       text="Preis (€)"   prefWidth="90"/>
         </columns>
