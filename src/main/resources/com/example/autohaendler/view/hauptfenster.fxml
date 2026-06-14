@@ -2,22 +2,53 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
+<BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.autohaendler.controller.HauptfensterController"
-            prefHeight="620.0" prefWidth="820.0">
+            prefHeight="700.0" prefWidth="980.0"
+            style="-fx-background-color: #F0F2F5;">
 
-    <TabPane fx:id="tabPane"
-             AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
-             AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
-             tabClosingPolicy="UNAVAILABLE">
+    <!-- Kopfzeile -->
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="12"
+              style="-fx-background-color: white;
+                     -fx-padding: 0 24 0 24;
+                     -fx-pref-height: 56;
+                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 2);
+                     -fx-border-color: transparent transparent #E5E7EB transparent;
+                     -fx-border-width: 0 0 1 0;">
 
-        <Tab text="Kunden"/>
-        <Tab text="Mitarbeiter"/>
-        <Tab text="Lieferer"/>
-        <Tab text="Fahrzeuge"/>
-        <Tab text="Verkauf"/>
-        <Tab text="Benutzer"/>
-    </TabPane>
+            <Label text="🚗"  style="-fx-font-size: 20px;"/>
+            <Label text="Händler Verwaltungssystem"
+                   style="-fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #1A1A2E;"/>
 
-</AnchorPane>
+            <HBox HBox.hgrow="ALWAYS"/>
+
+            <Label fx:id="lblBenutzer"
+                   style="-fx-font-size: 12px; -fx-text-fill: #6B7280;
+                          -fx-background-color: #F3F4F6; -fx-background-radius: 20;
+                          -fx-padding: 4 12 4 12;"/>
+
+            <Button text="Abmelden" onAction="#handleLogout"
+                    style="-fx-background-color: #FEE2E2; -fx-text-fill: #DC2626;
+                           -fx-font-size: 12px; -fx-font-weight: bold;
+                           -fx-background-radius: 8; -fx-padding: 8 16 8 16;
+                           -fx-cursor: hand; -fx-border-color: #FECACA;
+                           -fx-border-radius: 8;"/>
+        </HBox>
+    </top>
+
+    <center>
+        <TabPane fx:id="tabPane"
+                 tabClosingPolicy="UNAVAILABLE"
+                 style="-fx-background-color: #F0F2F5; -fx-tab-min-width: 110px;">
+            <Tab text="Kunden"/>
+            <Tab text="Betriebe"/>
+            <Tab text="Mitarbeiter"/>
+            <Tab text="Lieferer"/>
+            <Tab text="Fahrzeuge"/>
+            <Tab text="Verkauf"/>
+            <Tab text="Benutzer"/>
+        </TabPane>
+    </center>
+</BorderPane>

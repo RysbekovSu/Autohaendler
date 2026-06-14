@@ -1,6 +1,7 @@
 package com.example.autohaendler.controller;
 
 import com.example.autohaendler.DBConnection;
+import com.example.autohaendler.XmlExporter;
 import com.example.autohaendler.model.Fahrzeug;
 import com.example.autohaendler.model.Session;
 import com.example.autohaendler.model.Status;
@@ -157,4 +158,10 @@ public class FahrzeugeController {
     }
 
     @FXML private void handleLeeren() { leeren(); lblStatus.setText(""); }
+
+    @FXML
+    private void handleXmlExport() {
+        XmlExporter.exportiere("Fahrzeuge", tabelle);
+    }
+
 }

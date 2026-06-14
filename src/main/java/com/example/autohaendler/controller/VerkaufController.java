@@ -1,6 +1,7 @@
 package com.example.autohaendler.controller;
 
 import com.example.autohaendler.DBConnection;
+import com.example.autohaendler.XmlExporter;
 import com.example.autohaendler.model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -210,4 +211,10 @@ public class VerkaufController {
     }
 
     @FXML private void handleLeeren() { leeren(); lblStatus.setText(""); }
+
+    @FXML
+    private void handleXmlExport() {
+        XmlExporter.exportiere("Verkaeufe", tabelle);
+    }
+
 }

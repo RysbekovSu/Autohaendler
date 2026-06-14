@@ -1,6 +1,7 @@
 package com.example.autohaendler.controller;
 
 import com.example.autohaendler.DBConnection;
+import com.example.autohaendler.XmlExporter;
 import com.example.autohaendler.model.Benutzer;
 import com.example.autohaendler.model.Session;
 import javafx.collections.FXCollections;
@@ -118,4 +119,10 @@ public class BenutzerController {
     }
 
     @FXML private void handleLeeren() { leeren(); lblStatus.setText(""); }
+
+    @FXML
+    private void handleXmlExport() {
+        XmlExporter.exportiere("Benutzer", tabelle);
+    }
+
 }
