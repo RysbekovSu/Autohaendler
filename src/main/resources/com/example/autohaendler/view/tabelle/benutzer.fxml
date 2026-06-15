@@ -11,9 +11,7 @@
     <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-padding: 0 0 16 0;">
         <Label text="Benutzerverwaltung"
                style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #1A1A2E;"/>
-        <Label text="nur Admin"
-               style="-fx-font-size: 11px; -fx-text-fill: white; -fx-background-color: #DC2626;
-                      -fx-background-radius: 20; -fx-padding: 2 8 2 8;"/>
+
         <HBox HBox.hgrow="ALWAYS"/>
         <Label fx:id="lblStatus" style="-fx-font-size: 12px; -fx-text-fill: #6B7280;"/>
     </HBox>
