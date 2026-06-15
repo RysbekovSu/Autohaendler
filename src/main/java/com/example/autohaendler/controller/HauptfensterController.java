@@ -18,11 +18,13 @@ public class HauptfensterController {
 
     // Reihenfolge: Betriebe VOR Mitarbeiter
     private static final String[] TAB_NAMEN = {
-        "Kunden", "Betriebe", "Mitarbeiter", "Lieferer", "Fahrzeuge", "Verkauf", "Benutzer"
+            "Kunden","Kundenliste", "Betriebe", "Mitarbeiter", "Lieferer","Liefererliste", "Fahrzeuge", "Verkauf", "Benutzer"
+
     };
     private static final String[] FXML_DATEIEN = {
-        "kunden.fxml", "betriebe.fxml", "mitarbeiter.fxml", "lieferer.fxml",
-        "fahrzeuge.fxml", "verkauf.fxml", "benutzer.fxml"
+            "kunden.fxml","kundenliste.fxml", "betriebe.fxml", "mitarbeiter.fxml", "lieferer.fxml", "liefererliste.fxml",
+            "fahrzeuge.fxml", "verkauf.fxml", "benutzer.fxml",
+
     };
 
     @FXML

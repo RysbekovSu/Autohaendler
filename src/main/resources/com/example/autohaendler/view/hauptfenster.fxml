@@ -49,6 +49,8 @@
             <Tab text="Fahrzeuge"/>
             <Tab text="Verkauf"/>
             <Tab text="Benutzer"/>
+            <Tab text="Kundenliste"/>
+            <Tab text="Liefererliste"/>
         </TabPane>
     </center>
 </BorderPane>
